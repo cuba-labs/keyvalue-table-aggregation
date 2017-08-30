@@ -65,9 +65,9 @@ public class DemoScreen extends AbstractWindow {
         nameColumn.setType(nameMpp.getRangeJavaClass());
         table.addColumn(nameColumn);
 
-        Table.Column countMpp = new Table.Column(metaClass.getPropertyPath("count"), "Count");
-        Table.Column countColumn = countMpp;
-        countColumn.setType(metaClass.getPropertyPath("count").getRangeJavaClass());
+        MetaPropertyPath countMpp = metaClass.getPropertyPath("count");
+        Table.Column countColumn = new Table.Column(countMpp, "Count");
+        countColumn.setType(countMpp.getRangeJavaClass());
         AggregationInfo countAggInfo = new AggregationInfo();
         countAggInfo.setPropertyPath(ds.getMetaClass().getPropertyPath("count"));
         countAggInfo.setType(Type.SUM);
